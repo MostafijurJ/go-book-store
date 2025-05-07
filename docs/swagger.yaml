@@ -1,0 +1,213 @@
+basePath: /api/v1
+definitions:
+  models.Book:
+    properties:
+      author:
+        type: string
+      created_at:
+        type: string
+      edition:
+        type: string
+      genre:
+        type: string
+      id:
+        type: integer
+      publish_date:
+        type: string
+      publisher:
+        type: string
+      title:
+        type: string
+      total_pages:
+        type: integer
+    type: object
+  models.BookCreateRequest:
+    properties:
+      author:
+        type: string
+      edition:
+        type: string
+      genre:
+        type: string
+      publisher:
+        type: string
+      title:
+        type: string
+      total_pages:
+        type: integer
+    required:
+    - author
+    - edition
+    - genre
+    - publisher
+    - title
+    - total_pages
+    type: object
+  models.BookResponse:
+    properties:
+      author:
+        type: string
+      created_at:
+        type: string
+      edition:
+        type: string
+      genre:
+        type: string
+      id:
+        type: integer
+      publish_date:
+        type: string
+      publisher:
+        type: string
+      title:
+        type: string
+      total_pages:
+        type: integer
+    type: object
+  models.PaginatedBooksResponse:
+    properties:
+      books:
+        items:
+          $ref: '#/definitions/models.BookResponse'
+        type: array
+      limit:
+        type: integer
+      page:
+        type: integer
+      total:
+        type: integer
+    type: object
+host: https://go-book-store-1ewq.onrender.com
+info:
+  contact:
+    email: support@example.com
+    name: API Support
+    url: https://www.example.com/support
+  description: This is the API documentation for the Go Book Store application.
+  title: Go Book Store API
+  version: "1.0"
+paths:
+  /book:
+    get:
+      description: Retrieve a list of all books in the store with optional filtering
+        and pagination
+      parameters:
+      - default: 1
+        description: Page number for pagination
+        in: query
+        name: page
+        type: integer
+      - default: 10
+        description: Number of items per page
+        in: query
+        name: limit
+        type: integer
+      - description: Filter by author
+        in: query
+        name: author
+        type: string
+      - description: Filter by genre
+        in: query
+        name: genre
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.PaginatedBooksResponse'
+            type: array
+        "404":
+          description: No books found
+          schema:
+            type: string
+      summary: Get all books
+      tags:
+      - books
+  /book/{id}:
+    get:
+      description: Retrieve a single book by its ID
+      parameters:
+      - description: Book ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.BookResponse'
+        "404":
+          description: Book not found
+          schema:
+            type: string
+      summary: Get book by ID
+      tags:
+      - books
+  /book/create:
+    post:
+      consumes:
+      - application/json
+      description: Adds a new book to the store
+      parameters:
+      - description: Book data
+        in: body
+        name: book
+        required: true
+        schema:
+          $ref: '#/definitions/models.BookCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.BookResponse'
+        "400":
+          description: Invalid input
+          schema:
+            type: string
+      summary: Create a new book
+      tags:
+      - books
+  /book/update/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Update an existing book by its ID
+      parameters:
+      - description: Book ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated book data
+        in: body
+        name: book
+        required: true
+        schema:
+          $ref: '#/definitions/models.BookCreateRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Book'
+        "400":
+          description: Invalid input
+          schema:
+            type: string
+        "404":
+          description: Book not found
+          schema:
+            type: string
+      summary: Update a book
+      tags:
+      - books
+swagger: "2.0"
