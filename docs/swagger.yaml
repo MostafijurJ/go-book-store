@@ -77,7 +77,7 @@ definitions:
       total:
         type: integer
     type: object
-host: go-book-store-1ewq.onrender.com
+host: localhost:8888
 info:
   contact:
     email: support@example.com
