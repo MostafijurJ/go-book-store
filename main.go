@@ -13,7 +13,7 @@ import (
 // @title Go Book Store API
 // @description This is the API documentation for the Go Book Store application.
 // @version 1.0
-// @host localhost:8888
+// @host https://go-book-store-1ewq.onrender.com
 // @BasePath /api/v1
 
 // @contact.name API Support
@@ -31,9 +31,9 @@ func main() {
 	// Swagger route (still accessible directly)
 	router.PathPrefix("/swagger/").Handler(httpSwagger.WrapHandler)
 
-	log.Println("Server started at http://localhost:8888")
-	log.Println("Swagger docs at http://localhost:8888/swagger/index.html")
-	log.Println("API base path: http://localhost:8888/api/v1")
+	log.Println("Server started at https://go-book-store-1ewq.onrender.com/")
+	log.Println("Swagger docs at https://go-book-store-1ewq.onrender.com/swagger/index.html")
+	log.Println("API base path: https://go-book-store-1ewq.onrender.com/api/v1")
 
 	// Start server
 	log.Fatal(http.ListenAndServe(":8888", router))
