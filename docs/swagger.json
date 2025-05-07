@@ -10,7 +10,7 @@
         },
         "version": "1.0"
     },
-    "host": "https://go-book-store-1ewq.onrender.com",
+    "host": "https://go-book-store-1ewq.onrender.com:8888",
     "basePath": "/api/v1",
     "paths": {
         "/book": {

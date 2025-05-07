@@ -13,7 +13,7 @@ import (
 // @title Go Book Store API
 // @description This is the API documentation for the Go Book Store application.
 // @version 1.0
-// @host https://go-book-store-1ewq.onrender.com
+// @host https://go-book-store-1ewq.onrender.com:8888
 // @BasePath /api/v1
 
 // @contact.name API Support
