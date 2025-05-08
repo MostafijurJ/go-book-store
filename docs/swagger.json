@@ -10,7 +10,7 @@
         },
         "version": "1.0"
     },
-    "host": "localhost:8888",
+    "host": "https://go-book-store-1ewq.onrender.com",
     "basePath": "/api/v1",
     "paths": {
         "/book": {
@@ -20,7 +20,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "books"
+                    "Book Crud API"
                 ],
                 "summary": "Get all books",
                 "parameters": [
@@ -80,7 +80,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "books"
+                    "Book Crud API"
                 ],
                 "summary": "Create a new book",
                 "parameters": [
@@ -120,7 +120,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "books"
+                    "Book Crud API"
                 ],
                 "summary": "Update a book",
                 "parameters": [
@@ -170,7 +170,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "books"
+                    "Book Crud API"
                 ],
                 "summary": "Get book by ID",
                 "parameters": [
