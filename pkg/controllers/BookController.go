@@ -11,7 +11,7 @@ import (
 // CreateBook godoc
 // @Summary      Create a new book
 // @Description  Adds a new book to the store
-// @Tags         books
+// @Tags         Book Crud API
 // @Accept       json
 // @Produce      json
 // @Param        book body models.BookCreateRequest true "Book data"
@@ -39,7 +39,7 @@ func CreateBook(w http.ResponseWriter, r *http.Request) {
 // GetBookById godoc
 // @Summary Get book by ID
 // @Description Retrieve a single book by its ID
-// @Tags books
+// @Tags Book Crud API
 // @Produce json
 // @Param id path int true "Book ID"
 // @Success 200 {object} models.BookResponse
@@ -72,7 +72,7 @@ func GetBookById(w http.ResponseWriter, r *http.Request) {
 // GetAllBook godoc
 // @Summary Get all books
 // @Description Retrieve a list of all books in the store with optional filtering and pagination
-// @Tags books
+// @Tags Book Crud API
 // @Produce json
 // @Param page query int false "Page number for pagination" default(1)
 // @Param limit query int false "Number of items per page" default(10)
@@ -119,7 +119,7 @@ func GetAllBook(writer http.ResponseWriter, r *http.Request) {
 // UpdateBook godoc
 // @Summary Update a book
 // @Description Update an existing book by its ID
-// @Tags books
+// @Tags Book Crud API
 // @Accept json
 // @Produce json
 // @Param id path int true "Book ID"
